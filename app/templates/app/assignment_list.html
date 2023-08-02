@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <h2>Assignment List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Crew Member</th>
+        <th>Ship Code</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for assignment in assignment_list %}
+        <tr>
+          <td>{{ assignment.crewmember.name }}</td>
+          <td>{{ assignment.ship_code.ship_code }}</td>
+          <td>{{ assignment.crewmember.position.position_name }}</td>
+          <td>
+            <a href="{% url 'assignment_detail' assignment.id %}">View</a> |
+            <a href="{% url 'assignment_edit' assignment.id %}">Edit</a> |
+            <a href="{% url 'assignment_delete' assignment.id %}">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No assignments available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

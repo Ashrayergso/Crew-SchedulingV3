@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <h2>Cert Detail</h2>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td>{{ cert.name }}</td>
+    </tr>
+    <tr>
+      <th>Validity:</th>
+      <td>{{ cert.validity }}</td>
+    </tr>
+    <tr>
+      <th>Expiry:</th>
+      <td>{{ cert.expiry }}</td>
+    </tr>
+  </table>
+  <a href="{% url 'cert_edit' cert.id %}">Edit</a>
+  <a href="{% url 'cert_delete' cert.id %}">Delete</a>
+{% endblock %}

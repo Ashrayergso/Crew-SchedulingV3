@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <h2>Ship List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Ship Name</th>
+        <th>Ship Code</th>
+        <th>Ship Brand</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ship in ships %}
+        <tr>
+          <td>{{ ship.ship_name }}</td>
+          <td>{{ ship.ship_code }}</td>
+          <td>{{ ship.ship_brand }}</td>
+          <td>
+            <a href="{% url 'ship_detail' ship.id %}">View</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No ships available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
