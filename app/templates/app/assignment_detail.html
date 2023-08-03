@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <h2>Assignment Detail</h2>
+  <table>
+    <tr>
+      <th>Crew Member</th>
+      <td>{{ assignment.crewmember.name }}</td>
+    </tr>
+    <tr>
+      <th>Ship Code</th>
+      <td>{{ assignment.ship_code.ship_code }}</td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td>{{ assignment.position.position_name }}</td>
+    </tr>
+  </table>
+  <a href="{% url 'assignment_edit' assignment.id %}">Edit</a>
+  <a href="{% url 'assignment_delete' assignment.id %}">Delete</a>
+{% endblock %}
