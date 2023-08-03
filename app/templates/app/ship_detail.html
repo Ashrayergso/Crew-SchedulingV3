@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <h2>Ship Detail</h2>
+  <table>
+    <tr>
+      <th>Ship Name:</th>
+      <td>{{ ship.ship_name }}</td>
+    </tr>
+    <tr>
+      <th>Ship Code:</th>
+      <td>{{ ship.ship_code }}</td>
+    </tr>
+    <tr>
+      <th>Ship Brand:</th>
+      <td>{{ ship.ship_brand }}</td>
+    </tr>
+  </table>
+  <a href="{% url 'ship_edit' ship.id %}">Edit</a>
+  <a href="{% url 'ship_delete' ship.id %}">Delete</a>
+{% endblock %}
