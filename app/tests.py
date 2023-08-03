@@ -1,4 +1,3 @@
-```python
 from django.test import TestCase
 from .models import CrewMember, Cert, Qualification, Ship, Positions, Assignment, ShipCrewAllowance
 
@@ -12,7 +11,7 @@ class CrewMemberModelTest(TestCase):
         field_label = crewmember._meta.get_field('name').verbose_name
         self.assertEquals(field_label, 'name')
 
-# Repeat similar tests for other models and their fields
+    # Repeat similar tests for other models and their fields
 
 class AssignCrewToShipsTest(TestCase):
     def setUp(self):
@@ -22,6 +21,7 @@ class AssignCrewToShipsTest(TestCase):
         # Call the function and assert the expected results
 
 class ViewTest(TestCase):
+    
     def test_home_view(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
@@ -34,4 +34,3 @@ class MessageTest(TestCase):
         # Assert that the message is in the response
 
     # Repeat similar tests for other messages
-```

@@ -1,5 +1,4 @@
-```python
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.contrib import messages
 from .models import CrewMember, Cert, Qualification, Ship, Positions, Assignment, ShipCrewAllowance
 
@@ -68,4 +67,3 @@ def assignCrewToShips(request):
     # TODO: Implement the logic for automatic crew-to-ship assignment
     # This is a placeholder for the core feature of the application
     pass
-```
