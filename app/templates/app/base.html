@@ -1,4 +1,4 @@
-html
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +15,8 @@ html
         <a href="{% url 'positions_list' %}">Positions</a>
         <a href="{% url 'assignment_list' %}">Assignments</a>
     </nav>
-
-    {% block content %}
-    {% endblock content %}
-
-    <script src="{% static 'app/js/script.js' %}"></script>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

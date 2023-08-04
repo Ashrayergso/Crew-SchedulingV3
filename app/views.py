@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import CrewMember, Cert, Qualification, Ship, Positions, Assignment, ShipCrewAllowance
+from .forms import CrewMemberForm
+from django.shortcuts import redirect
+
 
 def home(request):
     return render(request, 'app/home.html')
@@ -67,3 +70,24 @@ def assignCrewToShips(request):
     # TODO: Implement the logic for automatic crew-to-ship assignment
     # This is a placeholder for the core feature of the application
     pass
+
+# TODO: Implement the following functions for the application
+def crewmember_edit(request):
+    pass
+
+def crewmember_edit(request, pk):
+    crewmember = get_object_or_404(CrewMember, pk=pk)
+    if request.method == "POST":
+        form = CrewMemberForm(request.POST, instance=crewmember)
+        if form.is_valid():
+            crewmember = form.save()
+            return redirect('crewmember_detail', pk=crewmember.pk)
+    else:
+        form = CrewMemberForm(instance=crewmember)
+    return render(request, 'app/crewmember_edit.html', {'form': form, 'crewmember': crewmember})
+
+
+def crewmember_delete(request, pk):
+    crewmember = get_object_or_404(CrewMember, pk=pk)
+    crewmember.delete()
+    return redirect('crewmember_list')
